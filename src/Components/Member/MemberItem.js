@@ -2,22 +2,21 @@ import React from 'react';
 
 const MemberItem = ({MemberList, handleFilter}) => {
     return (
-        <div>
+        <div>{MemberList &&
             <ul>
-            {MemberList.map(Member => 
-                <li key={Member.id}>
-                    <>
+            {MemberList?.map( (Member,index) => {
+                return (
+                <li key={index}>
                     <span>
-                        {Member.name} -
-                        {Member.phoneNumber}
+                        {Member.name} - {Member.phone}
                     </span>
                     <span onClick={() => handleFilter(Member.id)} role="img" aria-label="checked">
                         ❌
                     </span>
-                    </>
                 </li>
-            )}
-            </ul>
+                )
+            })}
+            </ul>}
         </div>
     );
 };

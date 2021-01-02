@@ -1,16 +1,17 @@
 import Calendar from "./Calendar"
-import MemberPage from "./Member/MemberPage";
+import MemberPage from "./Member";
 import styled from "styled-components";
+import HairList from "./hairList";
 
 const Container = styled.div`
   display: flex;
-  flex-direction: colum;
 `
 function App() {
   return (
     <Container>
       <Calendar />
       <MemberPage />
+      <HairList />
     </Container>
   );
 }

@@ -4,7 +4,7 @@ import List from "./MemberList";
 
 const Container = styled.div`
     margin-left: 10px;
-    flex-direction: colum;
+    flex-direction: column;
 `
 
 class MemberList extends React.Component  {
