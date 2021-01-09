@@ -4,8 +4,9 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { INITIAL_EVENTS, createEventId } from './event-utils';
+import { Link } from 'react-router-dom';
 
-export default class Calendar extends React.Component {
+export default class WeekCalendar extends React.Component {
   state = {
     weekendsVisible: true,
     currentEvents: []
@@ -18,13 +19,13 @@ export default class Calendar extends React.Component {
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             headerToolbar={{
-              right: 'today prev,next',
-              left: 'title',
+              left: 'prev,next',
+              center: 'title',
             }}
-            initialView='dayGridMonth'
-            locales='ko'
+            initialView='timeGridWeek'
             editable={true}
             selectable={true}
+            locales='ko'
             selectMirror={true}
             dayMaxEvents={true}
             weekends={this.state.weekendsVisible}
@@ -40,6 +41,7 @@ export default class Calendar extends React.Component {
             */
           />
         </div>
+        <Link to="/"> 홈으로 </Link>
       </div>
     )
   }
@@ -51,6 +53,7 @@ export default class Calendar extends React.Component {
   }
 
   handleDateSelect = (selectInfo) => {
+      console.log(selectInfo)
     let title = prompt('Please enter a new title for your event')
     let calendarApi = selectInfo.view.calendar
 
@@ -69,7 +72,6 @@ export default class Calendar extends React.Component {
 
   handleEventClick = (clickInfo) => {
     if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-      console.log(clickInfo)
       clickInfo.event.remove()
     }
   }
@@ -85,8 +87,8 @@ export default class Calendar extends React.Component {
 function renderEventContent(eventInfo) {
   return (
     <>
-      <b>'예상 수입'</b>
-      <i>'가격'</i>
+      <b>{eventInfo.timeText}</b>
+      <i>{eventInfo.event.title}</i>
     </>
   )
 }

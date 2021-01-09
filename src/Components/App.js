@@ -1,7 +1,5 @@
-import Calendar from "./Calendar"
-import MemberPage from "./Member";
 import styled from "styled-components";
-import HairList from "./hairList";
+import Router from "./Router";
 
 const Container = styled.div`
   display: flex;
@@ -9,9 +7,7 @@ const Container = styled.div`
 function App() {
   return (
     <Container>
-      <Calendar />
-      <MemberPage />
-      <HairList />
+      <Router />
     </Container>
   );
 }

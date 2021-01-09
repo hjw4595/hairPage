@@ -2,9 +2,10 @@ import React from "react";
 import { getMember } from "../../api/member";
 import MemberPresenter from "./MemberPresenter";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default class extends React.Component {
   state = {
-    result: null,
+    result: null, 
     error: null,
     loading: true,
   };

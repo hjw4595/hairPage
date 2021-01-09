@@ -2,6 +2,7 @@ import React from "react";
 import { getHairList } from "../../api/hairList";
 import HairListPresenter from "./HairListPresenter";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default class extends React.Component {
   state = {
     result: null,
@@ -22,7 +23,6 @@ export default class extends React.Component {
 
   render() {
     const { result, error, loading } = this.state;
-    {console.log(result)}
     return <HairListPresenter result={result} error={error} loading={loading} />
   }
 }

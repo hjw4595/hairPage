@@ -1,17 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const MemberItem = ({MemberList, handleFilter}) => {
+const MemberItem = ({MemberList, handleFilter }) => {
     return (
-        <div>{MemberList &&
+        <div>
+            {MemberList &&
             <ul>
-            {MemberList?.map( (Member,index) => {
+            {MemberList?.map( (Member) => {
                 return (
-                <li key={index}>
+                <li key={Member.phone}>
+                <Link to={`member/${Member.phone}`}>
                     <span>
                         {Member.name} - {Member.phone}
                     </span>
+                </Link>
                     <span onClick={() => handleFilter(Member.id)} role="img" aria-label="checked">
-                        ❌
+                        🔧
                     </span>
                 </li>
                 )

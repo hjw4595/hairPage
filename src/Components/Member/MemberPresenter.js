@@ -23,7 +23,9 @@ const MemberPresenter = ({ result, loading, error }) => {
   }
  return (
    <div>
+     <h2> 맴버 등록 </h2>
      <MemberForm addMember={addMember} />
+     <h2> 맴버 정보 </h2>
      <MemberItem MemberList={List} handleFilter={handleFilter} addMember={addMember} />
    </div>
  );
