@@ -1,5 +1,5 @@
 import React from "react";
-import { getMember } from "../../api/member";
+import { getMember, getNotComingList } from "../../api/member";
 import MemberPresenter from "./MemberPresenter";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -11,18 +11,20 @@ export default class extends React.Component {
   };
 
   async componentDidMount() {
-    let result = null;
+    let member = null;
+    let monthMember = null;
     try {
-      ({ data: result } = await getMember());
+      ({ data: member } = await getMember());
+      ({ data: monthMember } = await getNotComingList());
     } catch {
       this.setState({ error: "Can't find anything." });
     } finally {
-      this.setState({ loading: false, result });
+      this.setState({ loading: false, member ,monthMember });
     }
   }
 
   render() {
-    const { result, error, loading } = this.state;
-    return <MemberPresenter result={result} error={error} loading={loading} />
+    const { member, monthMember, error, loading } = this.state;
+    return <MemberPresenter member={member} monthMember={monthMember} error={error} loading={loading} />
   }
 }

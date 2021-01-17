@@ -1,4 +1,4 @@
-import React , {useEffect }from "react";
+import React from "react";
 import MemberDetailPresenter from "./MemberDetailPresenter";
 import { getDetailMember } from "../../../api/member";
 
@@ -20,7 +20,7 @@ export default class extends React.Component {
       },
       history: { push }
     } = this.props;
-    const phoneNumber = parseInt(id);
+    const phoneNumber = String(id);
     if (isNaN(phoneNumber)) {
       return push("/");
     }

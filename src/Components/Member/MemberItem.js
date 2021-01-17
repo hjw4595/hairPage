@@ -9,7 +9,7 @@ const MemberItem = ({MemberList, handleFilter }) => {
             {MemberList?.map( (Member) => {
                 return (
                 <li key={Member.phone}>
-                <Link to={`member/${Member.phone}`}>
+                <Link to={`member/${String(Member.phone)}`}>
                     <span>
                         {Member.name} - {Member.phone}
                     </span>

@@ -5,6 +5,9 @@ export const postMember = (name , phone) => axios.post(`/member`, {
     "name": name,
 });
 
+export const getNotComingList = () => axios.get(`/member/recentNotComingList`, {
+});
+
 export const getMember = () => axios.get(`/member/list`, {
 });
 
